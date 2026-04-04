@@ -42,8 +42,12 @@ video: EP03
 ## 請 Claude Code 幫我執行以下步驟
 
 > ⚠️ 以下內容是給 Claude Code 讀的操作指令。
-> 你只需要把這整份 MD 檔丟給 Claude Code，它會自動開始執行。
+> 你只需要把這整份 MD 檔丟給 Claude Code 桌面版的 Code 分頁，它會自動開始執行。
 > 遇到需要你手動操作的地方，它會暫停並告訴你該怎麼做。
+>
+> **所有安裝與設定都在 Claude Code 桌面版內完成，不需要另外打開 PowerShell 或命令提示字元。**
+> 如果 Claude Code 桌面版無法執行某個指令，才會引導你到終端機操作。
+> 進階使用者也可以直接使用 Claude Code CLI 版本來執行本懶人包。
 
 ---
 

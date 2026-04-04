@@ -156,7 +156,22 @@ claude mcp add supabase --scope user -- npx -y @supabase/mcp-server-supabase@lat
 
 4. 刪除測試資料表
 
-5. 告知使用者：「✅ 全部完成！你的 Claude Code 已成功連接 Supabase 資料庫。」
+5. 告知使用者：「連接測試成功！接下來設定自動防暫停。」
+
+---
+
+### 步驟七：設定自動防暫停排程
+
+> Supabase 免費專案閒置一週會自動暫停。設定一個每週自動查詢，就能永遠防止暫停。
+
+請使用 Claude Code 的排程功能，建立一個每週自動執行的任務：
+
+- **任務內容**：查詢 Supabase 資料庫中的 students 表（或任意一個表），確認資料庫回應正常
+- **排程頻率**：每週執行一次
+- **目的**：防止 Supabase 免費專案因閒置而暫停
+
+設定完成後，告知使用者：
+「✅ 全部完成！你的 Claude Code 已成功連接 Supabase 資料庫，並設定了每週自動防暫停。」
 
 ---
 
@@ -196,7 +211,7 @@ claude mcp remove supabase
 |------|------|
 | `npx: command not found` | 確認 Node.js 已安裝，重啟 Claude Code |
 | 連接後查詢失敗 | 確認 service_role key 是否正確（不是 anon key） |
-| Supabase 專案顯示「Paused」 | 免費專案閒置一週會暫停，到 Dashboard 點「Restore」即可 |
+| Supabase 專案顯示「Paused」 | 懶人包已設定每週自動防暫停。如果仍然暫停，到 Dashboard 點「Restore」即可 |
 | 建資料表失敗 | 確認專案沒有被暫停，網路連線正常 |
 | 不確定哪個是 service_role key | 在 Project Settings → API 中，有兩個 key：用 `service_role`（不是 `anon`） |
 | （實作後持續補充） | |

@@ -17,6 +17,8 @@ video: EP03
 > 更新日期：2026-04-04
 > 對應影片：Claude基本功 EP03
 
+> 📌 **本懶人包可獨立執行**：會自動檢查並安裝所需工具，不需要先看過其他懶人包。你只要確認下方「先備條件」即可開始。
+
 ---
 
 ## 這個懶人包會幫你做什麼？
@@ -81,8 +83,11 @@ Claude Code ←(MCP 協定)→ nlm (翻譯官) ←(Google 登入)→ NotebookLM
 > **不要跳過任何一項檢查，不要假設環境正常。**
 
 1. **確認作業系統**：執行系統指令確認是 Windows / macOS / Linux，後續所有指令請根據實際的作業系統選擇正確版本執行
-2. **確認 Git 已安裝**：執行 `git --version`，如果未安裝，引導使用者安裝
-3. **確認 uv 已安裝**：執行 `uv --version`，如果未安裝，在步驟一中會先安裝
+2. **檢查 Git 是否已安裝**：執行 `git --version`，如果未安裝：
+   - Windows：`winget install --id Git.Git --accept-source-agreements --accept-package-agreements`
+   - macOS：`xcode-select --install`
+   - Linux：`sudo apt update && sudo apt install git -y`
+3. **確認 uv 已安裝**：執行 `uv --version`，如果未安裝，步驟一會自動安裝
 4. **確認網路連線正常**：嘗試 ping 一個外部網站
 5. **確認 Claude Code 的版本**：確保是最新版本
 

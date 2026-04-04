@@ -18,6 +18,8 @@ video: EP08
 > 更新日期：2026-04-04
 > 對應影片：Claude基本功 EP08
 
+> 📌 **本懶人包可獨立執行**：會自動檢查並安裝所需工具，不需要先看過其他懶人包。你只要確認下方「先備條件」即可開始。
+
 ---
 
 ## 這個懶人包會幫你做什麼？
@@ -62,7 +64,10 @@ video: EP08
 
 1. **確認作業系統**：執行系統指令確認是 Windows / macOS / Linux，後續所有指令請根據實際的作業系統選擇正確版本執行
 2. **確認網路連線正常**
-3. **檢查 Node.js 是否已安裝**：執行 `node --version`，如果未安裝，引導使用者安裝
+3. **檢查 Node.js 是否已安裝**：執行 `node --version`，如果未安裝：
+   - Windows：`winget install --id OpenJS.NodeJS --accept-source-agreements --accept-package-agreements`
+   - macOS：`brew install node`
+   - Linux：`sudo apt update && sudo apt install nodejs npm -y`
 4. **檢查 npx 是否可用**：執行 `npx --version`
 5. **檢查 GitHub CLI 是否已登入**：執行 `gh auth status`（Supabase 用 GitHub 帳號登入）
 

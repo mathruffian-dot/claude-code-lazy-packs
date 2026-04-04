@@ -33,6 +33,8 @@
 | 02 | [連接 GitHub](02-連接-GitHub.md) | EP04 | v0.2 | 連接 GitHub + GitHub Pages 教材上線 |
 | 03 | [建立第二大腦 Obsidian](03-建立第二大腦-Obsidian.md) | EP06 | v0.2 | 安裝 Obsidian + MCP 連接 + Google Drive 同步 |
 | 04 | [連接 Supabase 資料庫](04-連接-Supabase-資料庫.md) | EP08 | v0.2 | 連接雲端資料庫，讓程式「記得住」 |
+| 05 | [安裝本地 AI Ollama](05-安裝本地AI-Ollama.md) | EP10 | v0.2 | 安裝本地 AI，免費、隱私、離線可用 |
+| 06 | [設定 Gemini 免費 API](06-設定Gemini免費API.md) | EP10 | v0.2 | 設定 Gemini 免費 API，不用信用卡 |
 
 > 懶人包會在不斷實作的過程中持續更新，最終成為最適合大眾使用的版本。
 
@@ -40,14 +42,19 @@
 
 ## 影片系列
 
-- **Claude基本功 EP01**：一次搞懂 Claude 全生態
-- **Claude基本功 EP02**：一次搞懂 Skills
-- **Claude基本功 EP03**：懶人包先備工作 + NotebookLM 連接實作
-- **Claude基本功 EP04**：GitHub 懶人包與教學網頁上線
-- **Claude基本功 EP05**：單元教學控制台（殺手級應用）
-- **Claude基本功 EP06**：Obsidian 第二大腦安裝
-- **Claude基本功 EP07**：第二大腦進階應用
-- **Claude基本功 EP08**：Supabase 資料庫懶人包
+| 集數 | 主題 | 定位 |
+|------|------|------|
+| EP01 | 一次搞懂 Claude 全生態 | 概念 |
+| EP02 | 一次搞懂 Skills | 概念 |
+| EP03 | 懶人包先備工作 + NotebookLM | 安裝集 |
+| EP04 | GitHub 懶人包與教學網頁上線 | 安裝集 |
+| EP05 | 單元教學控制台 | **應用高潮** |
+| EP06 | Obsidian 第二大腦安裝 | 安裝集 |
+| EP07 | 第二大腦進階應用 | **應用高潮** |
+| EP08 | Supabase 資料庫懶人包 | 安裝集 |
+| EP09 | 課堂數據中心 | **應用高潮** |
+| EP10 | 本地 AI + 免費 API 懶人包 | 安裝集 |
+| EP11 | 殺手級 AI 教學工具（即將推出） | **應用高潮** |
 
 ---
 

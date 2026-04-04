@@ -29,6 +29,29 @@ video: EP03
 
 ---
 
+## 原理說明：這個懶人包在做什麼？
+
+**三角關係圖**：
+
+```
+Claude Code ←(MCP 協定)→ nlm (翻譯官) ←(Google 登入)→ NotebookLM
+```
+
+這個懶人包會在你的電腦裡裝一個叫 `nlm` 的「翻譯官」，讓 Claude Code 能透過它去操控 NotebookLM。
+
+- **為什麼需要翻譯官？**
+  NotebookLM 沒有官方 API，Google 沒開放程式直接呼叫。`nlm` 是用「模擬瀏覽器操作」的方式，假裝是你在點網頁。
+
+- **什麼是 MCP？**
+  MCP（Model Context Protocol）是 Claude 跟外部工具溝通的標準接口，就像手機的 USB-C——只要工具支援 MCP，Claude 就能插上去用。
+
+- **為什麼要登入 Google？**
+  `nlm` 需要你的 Google 通行證，才能幫你去操作 NotebookLM。
+
+**一句話記住**：你跟 Claude 講中文，Claude 叫 `nlm` 去幫你點 NotebookLM 的網頁，成品自動下載到你電腦的資料夾。
+
+---
+
 ## 先備條件
 
 在使用這個懶人包之前，請確認：

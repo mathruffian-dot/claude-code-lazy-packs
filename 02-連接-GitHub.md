@@ -36,7 +36,7 @@ video: EP04
 在使用這個懶人包之前，請確認：
 
 - [ ] Claude Code 桌面版已安裝且能正常使用（Pro 方案以上）
-- [ ] 已有 GitHub 帳號（免費帳號即可，到 github.com 註冊）
+- [ ] 有可用的 email 信箱（如果還沒 GitHub 帳號，懶人包會引導你註冊）
 - [ ] 電腦有網路連線
 
 ---
@@ -73,6 +73,65 @@ video: EP04
 > 全部通過後，告知使用者：「環境檢查完成，所有條件都符合，開始設定。」
 > 如果有不通過的項目，列出問題清單並逐一引導解決。
 > 安裝完工具後如果指令找不到，請提醒使用者可能需要重啟 Claude Code 桌面版。
+
+---
+
+### 步驟零.五：確認使用者有 GitHub 帳號（如果還沒有,幫忙註冊）
+
+> 🖐️ **需要手動操作**：請 Claude **先詢問使用者**：「你有 GitHub 帳號了嗎?」
+>
+> - **已有帳號** → 跳到步驟一
+> - **還沒有** → 請 Claude 依照以下流程引導使用者註冊（約 3 分鐘）
+
+#### 註冊 GitHub 帳號引導流程
+
+**Step 1：打開註冊頁面**
+
+請使用者在瀏覽器開啟：https://github.com/signup
+
+**Step 2：填寫註冊資料（Claude 逐步引導）**
+
+依序詢問使用者並提醒填寫：
+
+| 欄位 | 說明 | 老師建議 |
+|------|------|---------|
+| **Email** | 常用的 email | 用學校 email 或個人常用 email |
+| **Password** | 至少 15 字元 或 8 字元含數字+小寫 | 建議寫下來或存到密碼管理器 |
+| **Username** | 全站唯一,之後網址會用到 | **建議用英文+數字,不要中文**。例如 `mathteacher2026`、`wang-math` |
+| **Email preferences** | 是否接收電子報 | 可以取消勾選（N） |
+
+> ⚠️ **Username 一旦決定就不好改**（GitHub Pages 網址會變），請慎重。
+> 建議用「科目+姓名」或「暱稱」這種容易記的英文。
+
+**Step 3：通過驗證**
+
+- GitHub 會出現一個拼圖驗證（verify your account）
+- 請使用者完成拼圖
+- 完成後點「Create account」
+
+**Step 4：Email 驗證**
+
+- GitHub 會寄驗證碼到使用者 email
+- 請使用者打開 email,複製 8 位數驗證碼
+- 回到 GitHub 頁面貼上驗證碼
+
+**Step 5：基本設定（可跳過）**
+
+- 會出現「How many team members?」等問卷 → **可以直接捲到最下方點 Skip 跳過**
+- 選擇 **Free 方案**（免費即可,不要選付費）
+
+**Step 6：確認註冊成功**
+
+- 登入後會看到 GitHub 首頁（Dashboard）
+- 告知使用者：「✅ GitHub 帳號註冊完成!接下來幫你連接 Claude Code。」
+
+> 🖐️ **常見註冊問題**：
+> | 問題 | 解法 |
+> |------|------|
+> | Username 被搶走了 | 在後面加數字或連字號,例如 `wang-math-2026` |
+> | 沒收到驗證信 | 檢查垃圾郵件匣,或點「Resend code」重寄 |
+> | 拼圖驗證一直失敗 | 重新整理頁面再試一次 |
+> | 想改 username | 到 Settings → Account → Change username(但會影響既有連結) |
 
 ---
 
@@ -221,5 +280,5 @@ gh auth login --web --git-protocol https
 
 - [[00-環境建置|懶人包 #00：環境建置]]
 - [[01-連接 NotebookLM|懶人包 #01：連接 NotebookLM]]
-- [[Claude基本功EP04 - GitHub懶人包與教學網頁上線]]
+- [[Claude基本功EP05 - GitHub懶人包與教學網頁上線]]
 - [[README|Claude Code 懶人包索引]]

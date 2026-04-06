@@ -39,7 +39,8 @@
 | 00 | [環境建置](00-環境建置.md) | EP03 | v0.2 | 安裝 Git、GitHub CLI、uv 等基礎工具 |
 | 01 | [連接 NotebookLM](01-連接-NotebookLM.md) | EP03 | v0.2 | 安裝 NotebookLM MCP + 產生簡報與圖表 |
 | 02 | [連接 GitHub](02-連接-GitHub.md) | EP05 | v0.2 | 連接 GitHub + GitHub Pages 教材上線 |
-| 03 | [建立第二大腦 Obsidian](03-建立第二大腦-Obsidian.md) | EP07 | v0.2 | 安裝 Obsidian + MCP 連接 + Google Drive 同步 |
+| 03 | [建立第二大腦 Obsidian](03-建立第二大腦-Obsidian.md) | EP07 | v0.5 | 安裝 Obsidian + MCP 連接 + Google Drive 同步 |
+| 03+ | [第二大腦設定指南](04-第二大腦設定指南.md) | EP08 | v1.0 | 🆕 三層結構 + CLAUDE.md + 模板 + 每週知識重整排程 |
 | 04 | [連接 Supabase 資料庫](04-連接-Supabase-資料庫.md) | EP09 | v0.2 | 連接雲端資料庫，讓程式「記得住」 |
 | 05 | [安裝本地 AI Ollama](05-安裝本地AI-Ollama.md) | EP11 | v0.2 | 安裝本地 AI，免費、隱私、離線可用 |
 | 06 | [設定 Gemini 免費 API](06-設定Gemini免費API.md) | EP11 | v0.2 | 設定 Gemini 免費 API，不用信用卡 |

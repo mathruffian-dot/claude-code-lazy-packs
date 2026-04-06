@@ -2,8 +2,8 @@
 title: 'Claude Code 懶人包 #03：建立第二大腦（Obsidian）'
 date: '2026-04-04'
 type: 懶人包
-version: v0.4
-status: 初版（實作後更新）
+version: v0.5
+status: 實測修正版
 tags:
   - Claude-Code
   - 懶人包
@@ -14,7 +14,7 @@ video: EP06
 ---
 # Claude Code 懶人包 #03：建立第二大腦（Obsidian）
 
-> 版本：v0.4
+> 版本：v0.5
 > 更新日期：2026-04-06
 > 對應影片：Claude基本功 EP06
 
@@ -38,7 +38,7 @@ video: EP06
 - [ ] Claude Code 桌面版已安裝且能正常使用（Pro 方案以上）
 - [ ] 已有 Google 帳號（用於 Google Drive 同步）
 - [ ] 電腦有網路連線
-- [ ] Node.js 已安裝（mcpvault 需要 npx 指令）
+- [ ] Node.js 已安裝（mcpvault 需要 npx 指令）— 沒裝也沒關係，步驟零會自動安裝
 
 ---
 
@@ -64,11 +64,16 @@ video: EP06
 
 1. **確認作業系統**：執行系統指令確認是 Windows / macOS / Linux，後續所有指令請根據實際的作業系統選擇正確版本執行
 2. **確認網路連線正常**
-3. **檢查 Node.js 是否已安裝**：執行 `node --version`，如果未安裝：
-   - Windows：`winget install --id OpenJS.NodeJS --accept-source-agreements --accept-package-agreements`
-   - macOS：`brew install node`
-   - Linux：`sudo apt update && sudo apt install nodejs npm -y`
-4. **檢查 npx 是否可用**：執行 `npx --version`
+3. **檢查 Node.js 是否已安裝**：
+   - ⚠️ **Windows 重要提醒**：Claude Code 桌面版的 bash 環境可能找不到 `node`，即使已安裝。請用以下方式檢查：
+     - 先嘗試 `node --version`
+     - 若失敗，嘗試 `export PATH="/c/Program Files/nodejs:$PATH" && node --version`
+     - 若仍失敗，代表未安裝，請安裝：
+       - Windows：`winget install --id OpenJS.NodeJS --accept-source-agreements --accept-package-agreements`
+       - macOS：`brew install node`
+       - Linux：`sudo apt update && sudo apt install nodejs npm -y`
+   - 安裝完成後，後續所有 node/npm/npx 指令都需要先加上 `export PATH="/c/Program Files/nodejs:$PATH"`（僅 Windows）
+4. **檢查 npx 是否可用**：執行 `npx --version`（Windows 記得加 PATH）
 5. **檢查 Google Drive 桌面版是否已安裝**：
    - Windows：確認 `G:\` 或 `C:\Users\[使用者]\Google Drive\` 路徑是否存在
    - macOS：確認 `/Users/[使用者]/Google Drive/` 或 `~/Library/CloudStorage/GoogleDrive-*/` 路徑是否存在
@@ -161,37 +166,103 @@ Google Drive/
 ### 步驟五：安裝 mcpvault MCP Server
 
 mcpvault 是主力 MCP，讓 Claude Code 能搜尋、讀取、編輯你的筆記。
-**不需要 Obsidian 開著就能運作。**
+**不需要 Obsidian 開著就能運作。不需要在 Obsidian 中安裝任何外掛。**
 
-請執行以下指令（將 vault 路徑替換為步驟三記錄的實際路徑）：
+> ⚠️ **實測踩坑紀錄**：
+> - `claude mcp add` 指令在 Claude Code **桌面版**可能無法使用（找不到 `claude` CLI）
+> - 用 `npx` 當 MCP command 啟動時，Windows 環境可能因為 PATH 問題導致 Claude Code 找不到 npx
+> - 解法：**先全域安裝 mcpvault，再手動寫入設定檔，使用完整路徑**
 
-**Windows**：
+#### 5-1：全域安裝 mcpvault
+
 ```bash
-claude mcp add obsidian --scope user -- npx @bitbonsai/mcpvault "[vault的完整路徑]"
+# Windows（記得加 PATH）
+export PATH="/c/Program Files/nodejs:$PATH" && npm install -g @bitbonsai/mcpvault
+
+# macOS / Linux
+npm install -g @bitbonsai/mcpvault
 ```
 
-**macOS / Linux**：
-```bash
-claude mcp add obsidian --scope user -- npx @bitbonsai/mcpvault "/path/to/vault"
+安裝完成後，確認全域安裝的路徑：
+- Windows：通常在 `C:\Users\[使用者]\AppData\Roaming\npm\mcpvault.cmd`
+- macOS / Linux：通常在 `/usr/local/bin/mcpvault` 或 `~/.npm-global/bin/mcpvault`
+
+用 `which mcpvault` 或 `where.exe mcpvault` 確認實際路徑。
+
+#### 5-2：寫入 MCP 設定檔
+
+> ⚠️ **重要**：為了確保 Claude Code 能正確載入 MCP，請在**三個位置**都寫入設定。
+> 這是因為不同版本的 Claude Code（桌面版、CLI、Web）讀取設定的位置不同。
+
+**位置 1：使用者全域設定** `~/.claude/settings.json`
+
+```json
+{
+  "mcpServers": {
+    "obsidian": {
+      "command": "C:\\Users\\[使用者]\\AppData\\Roaming\\npm\\mcpvault.cmd",
+      "args": [
+        "G:\\我的雲端硬碟\\[vault名稱]"
+      ]
+    }
+  }
+}
 ```
 
-> ⚠️ 路徑中如果有中文或空格，務必用引號包住。
-> 例如：`"C:\Users\王老師\Google Drive\secondbrain"`
+**位置 2：專案設定** `[工作目錄]/.claude/settings.local.json`
+
+（內容同上）
+
+**位置 3：專案根目錄** `[工作目錄]/.mcp.json`
+
+（內容同上）
+
+> 📝 **macOS / Linux 的設定範例**：
+> ```json
+> {
+>   "mcpServers": {
+>     "obsidian": {
+>       "command": "mcpvault",
+>       "args": [
+>         "/Users/[使用者]/Library/CloudStorage/GoogleDrive-xxx/My Drive/[vault名稱]"
+>       ]
+>     }
+>   }
+> }
+> ```
+> macOS/Linux 通常不需要完整路徑，直接用 `mcpvault` 即可。
+
+> ⚠️ 路徑中如果有中文或空格，在 JSON 中用雙反斜線跳脫。
+> 例如：`"G:\\我的雲端硬碟\\secondbrain"`
 
 ---
 
 ### 步驟六：重啟 Claude Code 並驗證
 
 > 🖐️ **需要手動操作**：請使用者完全關閉 Claude Code 桌面版，然後重新開啟。
+>
+> ⚠️ **只需要重啟一次**：如果步驟五的三個設定檔都正確寫入，重啟一次就夠了。
 
-重新開啟後，逐一測試：
+重新開啟後，驗證 MCP 是否成功載入：
 
-#### 測試 1：搜尋筆記
-嘗試搜尋 vault 中的筆記（例如搜尋「教學」或任何已建立的資料夾名稱）。
-如果能回傳結果，代表 mcpvault 連接成功。
+#### 驗證方式 1：檢查工具清單
+嘗試使用 `mcp__obsidian__get_vault_stats` 或 `mcp__obsidian__list_directory` 工具。
+如果能回傳 vault 的資料夾結構，代表連接成功。
 
-#### 測試 2：新增筆記
-在 vault 中新增一篇測試筆記：
+#### 驗證方式 2：如果工具不存在
+如果找不到 `mcp__obsidian__` 開頭的工具，代表 MCP 未成功載入，請依序排查：
+1. 確認 `~/.claude/settings.json` 中的 `command` 路徑是否正確（路徑中的檔案確實存在）
+2. 確認 vault 路徑確實存在且可存取
+3. 在終端機手動測試 MCP server 是否能啟動：
+   ```bash
+   echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | mcpvault "[vault路徑]"
+   ```
+   如果回傳 JSON 工具清單，代表 mcpvault 本身正常，問題在 Claude Code 的設定讀取
+4. 確認 `.mcp.json` 在 Claude Code 開啟的工作目錄下
+5. 再次重啟 Claude Code
+
+#### 驗證方式 3：新增測試筆記
+連接成功後，在 vault 中新增一篇測試筆記：
 - 路徑：`測試筆記.md`
 - 內容：「這是 Claude Code 透過 MCP 自動建立的筆記。連接成功！」
 - 含 frontmatter：title、date
@@ -266,7 +337,13 @@ Claude 會自動：
 
 如果需要完全重置 MCP 連接：
 ```bash
+# 如果有 claude CLI
 claude mcp remove obsidian
+
+# 如果沒有 claude CLI（桌面版），手動刪除以下檔案中的 obsidian 設定：
+# - ~/.claude/settings.json
+# - [工作目錄]/.claude/settings.local.json
+# - [工作目錄]/.mcp.json
 ```
 然後從步驟五重新開始。
 
@@ -279,7 +356,11 @@ claude mcp remove obsidian
 | mcpvault 搜尋不到筆記 | 確認 vault 路徑正確，路徑中有中文或空格需用引號包住 |
 | Google Drive 同步衝突 | 避免在兩台裝置同時編輯同一篇筆記，等同步完成再操作 |
 | `npx: command not found` | 確認 Node.js 已安裝，重啟 Claude Code 桌面版 |
-| （實作後持續補充） | |
+| `claude: command not found` | Claude Code 桌面版不一定有 CLI。改用手動寫入設定檔的方式（見步驟五） |
+| 重啟後 MCP 工具仍不存在 | 確認設定檔中 `command` 使用**完整路徑**（如 `C:\\Users\\...\\mcpvault.cmd`），不要只寫 `npx` |
+| Windows bash 找不到 node | 新裝的 Node.js 可能不在 bash PATH 中，需要 `export PATH="/c/Program Files/nodejs:$PATH"` |
+| 設定檔寫了但沒生效 | 確認在三個位置都寫入（`~/.claude/settings.json`、`.claude/settings.local.json`、`.mcp.json`） |
+| Obsidian 需要裝外掛嗎？ | **不需要**。mcpvault 直接讀寫 vault 資料夾的檔案，不經過 Obsidian app |
 
 ---
 
@@ -305,6 +386,7 @@ claude mcp remove obsidian
 | 2026-04-04 | v0.2 | 加入環境檢查、復原機制、跨平台支援、Google Drive 同步方案 |
 | 2026-04-06 | v0.3 | 移除 obsidian-ide（obsidian-claude-code-mcp），mcpvault 已涵蓋所需功能 |
 | 2026-04-06 | v0.4 | 補充 Google Drive 桌面版完整安裝教學、修正步驟編號 |
+| 2026-04-06 | v0.5 | 實測修正：步驟五改為全域安裝 + 手動寫設定檔（解決桌面版無 CLI、npx PATH 問題），三處設定確保一次重啟就成功，補充 Windows 踩坑常見問題 |
 
 ---
 

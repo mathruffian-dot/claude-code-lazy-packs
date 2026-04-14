@@ -42,6 +42,7 @@
 | 03 | [建立第二大腦 Obsidian](03-建立第二大腦-Obsidian.md) | EP07 | v0.5 | 安裝 Obsidian + MCP 連接 + Google Drive 同步 |
 | 03+ | [第二大腦設定指南](04-第二大腦設定指南.md) | EP08 | v1.0 | 🆕 三層結構 + CLAUDE.md + 模板 + 每週知識重整排程 |
 | 04 | [連接 Supabase 資料庫](04-連接-Supabase-資料庫.md) | EP09 | v0.2 | 連接雲端資料庫，讓程式「記得住」 |
+| 04.5 | [連接 Firebase 資料庫](04.5-連接-Firebase-資料庫.md) | EP09.5 | v0.7 | 🆕 對老師更友善的資料庫選擇（不會閒置暫停、千人研習撐得住、Firestore MCP 完整 CRUD） |
 | 05 | [安裝本地 AI Ollama](05-安裝本地AI-Ollama.md) | EP11 | v0.2 | 安裝本地 AI，免費、隱私、離線可用 |
 | 06 | [設定 Gemini 免費 API](06-設定Gemini免費API.md) | EP11 | v0.2 | 設定 Gemini 免費 API，不用信用卡 |
 
@@ -62,6 +63,7 @@
 | EP07 | Obsidian 第二大腦安裝 | 安裝集 |
 | EP08 | 第二大腦進階應用 | **應用高潮** |
 | EP09 | Supabase 資料庫懶人包 | 安裝集 |
+| EP09.5 | Firebase 資料庫懶人包（老師更該選的版本） | 安裝集 |
 | EP10 | 課堂數據中心 | **應用高潮** |
 | EP11 | 本地 AI + 免費 API 懶人包 | 安裝集 |
 | EP12 | 殺手級 AI 教學工具（即將推出） | **應用高潮** |

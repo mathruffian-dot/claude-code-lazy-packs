@@ -40,12 +40,13 @@
 | 01 | [連接 NotebookLM](01-連接-NotebookLM.md) | EP03 | v0.2 | 安裝 NotebookLM MCP + 產生簡報與圖表 |
 | 02 | [連接 GitHub](02-連接-GitHub.md) | EP05 | v0.2 | 連接 GitHub + GitHub Pages 教材上線 |
 | 03 | [建立第二大腦 Obsidian](03-建立第二大腦-Obsidian.md) | EP07 | v0.5 | 安裝 Obsidian + MCP 連接 + Google Drive 同步 |
-| 03+ | [第二大腦設定指南](04-第二大腦設定指南.md) | EP08 | v1.0 | 🆕 三層結構 + CLAUDE.md + 模板 + 每週知識重整排程 |
+| 03+ | [第二大腦設定指南](04-第二大腦設定指南.md) | EP08 | v1.0 | 三層結構 + CLAUDE.md + 模板 + 每週知識重整排程 |
 | 04 | [連接 Supabase 資料庫](04-連接-Supabase-資料庫.md) | EP09 | v0.2 | 連接雲端資料庫，讓程式「記得住」 |
-| 04.5 | [連接 Firebase 資料庫](04.5-連接-Firebase-資料庫.md) | EP09.5 | v0.7 | 🆕 對老師更友善的資料庫選擇（不會閒置暫停、千人研習撐得住、Firestore MCP 完整 CRUD） |
-| 05 | [安裝本地 AI Ollama](05-安裝本地AI-Ollama.md) | EP12 | v0.2 | 安裝本地 AI，免費、隱私、離線可用 |
-| 06 | [設定 Gemini 免費 API](06-設定Gemini免費API.md) | EP12 | v0.2 | 設定 Gemini 免費 API，不用信用卡 |
-| **07** | [**初始化班級工具工作模式**](07-初始化班級工具工作模式.md) | **EP10** | **v0.1** | **🆕 一鍵啟動「老師建專案模式」：建好總資料夾、CLAUDE.md、Obsidian 工作筆記、GitHub repo、安裝 `/收工` skill。一台電腦跑一次，永遠的工作節奏** |
+| 04.5 | [連接 Firebase 資料庫](04.5-連接-Firebase-資料庫.md) | EP09.5 | v0.7 | 對老師更友善的資料庫選擇（不會閒置暫停、千人研習撐得住、Firestore MCP 完整 CRUD） |
+| 05 | [安裝本地 AI Ollama](05-安裝本地AI-Ollama.md) | **EP14** | v0.2 | 安裝本地 AI，免費、隱私、離線可用 |
+| 06 | [設定 Gemini 免費 API](06-設定Gemini免費API.md) | **EP14** | v0.2 | 設定 Gemini 免費 API，不用信用卡 |
+| 07 | [初始化班級工具工作模式](07-初始化班級工具工作模式.md) | EP10 | v0.1 | 一鍵啟動「老師建專案模式」：建好總資料夾、CLAUDE.md、Obsidian 工作筆記、GitHub repo、安裝 `/收工` skill |
+| **08** 🆕 | [**把 ChatGPT Image 2.0 裝進 Claude Code**](08-安裝gpt-image-2生圖.md) | **EP11** | **v0.1** | **🆕 全域 `draw` Skill 安裝：OpenAI API Key + Individual 驗證 + `~/.claude/skills/draw/` + 第一張圖驗證。之後在任何專案對 Claude 說「畫一張 XX」就生圖，每張約 NT$0.3** |
 
 > 懶人包會在不斷實作的過程中持續更新，最終成為最適合大眾使用的版本。
 
@@ -53,6 +54,7 @@
 
 ## 影片系列
 
+> 📌 **2026-04-23 系列重編號**：新增 EP11（生圖安裝篇）+ EP12（生圖應用篇），原 EP11-14 全部 +2 順延。
 > 📌 **2026-04-18 系列重編號**：「老師建專案指南」升格為 EP10（系列核心通識課），原 EP10-13 連鎖 +1。
 
 | 集數 | 主題 | 定位 |
@@ -68,10 +70,12 @@
 | EP09 | Supabase 資料庫懶人包 | 安裝集 |
 | EP09.5 | Firebase 資料庫懶人包（老師更該選的版本） | 安裝集 |
 | **EP10** | **老師建專案指南（系列核心通識課）** | **應用高潮** ⭐ |
-| EP11 | 一人一碼的教學駕駛艙 | **應用高潮** |
-| EP12 | 本地 AI + 免費 API 懶人包 | 安裝集 |
-| EP13 | AI 個人化學習助教（系列集大成） | **應用高潮** |
-| EP14 | 跨電腦工作術（GDrive + Obsidian + GitHub 三方同步）| 進階 |
+| **EP11** 🆕 | **把 ChatGPT Image 2.0 裝進 Claude Code** | **安裝集** |
+| **EP12** 🆕 | **gpt-image-2 × Claude Code 的三大教學應用** | **應用高潮** |
+| EP13 | 一人一碼的教學駕駛艙（舊 EP11） | **應用高潮** |
+| EP14 | 本地 AI + 免費 API 懶人包（舊 EP12） | 安裝集 |
+| EP15 | AI 個人化學習助教：系列集大成（舊 EP13） | **應用高潮** |
+| EP16 | 跨電腦工作術：GDrive + Obsidian + GitHub 三方同步（舊 EP14） | 進階 |
 
 ---
 

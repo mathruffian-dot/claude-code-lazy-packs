@@ -29,7 +29,7 @@ nlm doctor
 ```bash
 nlm setup add claude-code
 ```
-（自動寫入 `~/.claude/settings.json`）
+（自動寫入 `~/.claude.json`；專案層級則是 `.mcp.json`）
 
 ### 4. 驗證
 重啟 Claude Code 後，問：「請列出我所有的 NotebookLM 筆記本。」
@@ -37,6 +37,6 @@ nlm setup add claude-code
 回報格式：nlm 版本、登入狀態（nlm doctor）、MCP 設定、筆記本讀取測試結果。
 
 ## 如果失敗
-- 手動編輯 `~/.claude/settings.json` 的 `mcpServers` 區塊
+- 手動編輯 `~/.claude.json`（或專案的 `.mcp.json`）的 `mcpServers` 區塊
 - 移除：`nlm setup remove claude-code`；`uv tool uninstall notebooklm-mcp-cli`；`nlm logout`
 - 從步驟 1 重來

@@ -1,0 +1,11 @@
+# Force LF line endings for text files across all platforms
+# Avoids spurious CRLF↔LF "everything changed" diffs on Windows checkouts
+* text=auto eol=lf
+
+# Binary files (don't touch)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary
